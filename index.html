@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>沖繩三天行｜2026/07/24 - 07/26</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1d252c;
+      --muted: #66717d;
+      --line: #dde5e8;
+      --paper: #fffdf8;
+      --wash: #f3f8f7;
+      --sea: #247f8f;
+      --sea-dark: #166271;
+      --coral: #e8755d;
+      --green: #57a864;
+      --sand: #f7ead6;
+      --shadow: 0 18px 46px rgba(25, 42, 52, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(36, 127, 143, .13), transparent 320px),
+        radial-gradient(circle at 12% 6%, rgba(232, 117, 93, .16), transparent 240px),
+        var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 44vh;
+      display: grid;
+      align-items: end;
+      padding: 34px clamp(18px, 5vw, 72px) 42px;
+      background:
+        linear-gradient(180deg, rgba(9, 34, 42, .25), rgba(9, 34, 42, .65)),
+        url("https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=1800&q=80") center 43% / cover;
+      color: #fff;
+    }
+
+    .hero__inner {
+      max-width: 980px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .9;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 8vw, 86px);
+      line-height: 1;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 18px 0 0;
+      font-size: clamp(17px, 2.2vw, 24px);
+      opacity: .92;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: -24px auto 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .notice {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border: 1px solid rgba(36, 127, 143, .2);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .94);
+      box-shadow: var(--shadow);
+    }
+
+    .notice strong {
+      font-size: 18px;
+    }
+
+    .notice span {
+      color: var(--muted);
+    }
+
+    .map-button,
+    .copy-button,
+    .small-map {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--sea);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(36, 127, 143, .22);
+      transition: transform .16s ease, background .16s ease;
+      white-space: nowrap;
+    }
+
+    .map-button,
+    .copy-button {
+      padding: 0 16px;
+    }
+
+    .copy-button {
+      cursor: pointer;
+      background: var(--coral);
+      font: inherit;
+    }
+
+    .small-map {
+      min-height: 34px;
+      padding: 0 11px;
+      font-size: 13px;
+    }
+
+    .map-button:hover,
+    .copy-button:hover,
+    .small-map:hover {
+      transform: translateY(-1px);
+      background: var(--sea-dark);
+    }
+
+    .copy-button:hover {
+      background: #c95d49;
+    }
+
+    .section-title {
+      margin: 34px 0 14px;
+      font-size: 26px;
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .day {
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(33, 55, 64, .08);
+    }
+
+    .day header {
+      padding: 16px 18px;
+      color: #fff;
+      background: var(--sea);
+    }
+
+    .day:nth-child(2) header {
+      background: var(--coral);
+    }
+
+    .day:nth-child(3) header {
+      background: #3f7b62;
+    }
+
+    .date {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.2;
+    }
+
+    .weekday {
+      display: block;
+      margin-top: 3px;
+      font-size: 14px;
+      opacity: .88;
+    }
+
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 10px;
+      padding: 13px 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline li:first-child {
+      border-top: 0;
+    }
+
+    .time {
+      color: var(--sea-dark);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .event-title {
+      margin: 0 0 6px;
+      font-weight: 800;
+    }
+
+    .event-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .event-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .free {
+      color: #2f6f38;
+      background: rgba(87, 168, 100, .14);
+    }
+
+    .maps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .place {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .place b {
+      display: block;
+      font-size: 16px;
+    }
+
+    .place span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sheet {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--sand);
+      text-align: left;
+      font-size: 15px;
+    }
+
+    td:first-child {
+      width: 72px;
+      color: var(--muted);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .blocked {
+      background: rgba(87, 168, 100, .86);
+      color: #0f3c1a;
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .days,
+      .maps {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        margin-top: -18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 40vh;
+        padding: 26px 18px 32px;
+      }
+
+      main {
+        width: calc(100% - 20px);
+      }
+
+      .notice,
+      .place {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .map-button,
+      .copy-button,
+      .small-map {
+        width: 100%;
+      }
+
+      .timeline li {
+        grid-template-columns: 48px 1fr;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">Okinawa Trip</p>
+      <h1>沖繩三天行</h1>
+      <p>2026/07/24 - 2026/07/26｜那霸、牧志、國際通、波上宮</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="notice" aria-label="住宿資訊">
+      <div>
+        <strong>民宿地址</strong><br>
+        <span id="stay-address">3-10-3 (Second Floor), Maki-shi, Naha-city, Okinawa 900-0013</span>
+      </div>
+      <button class="copy-button" type="button" data-copy-target="stay-address">複製地址</button>
+      <a class="map-button" href="https://maps.app.goo.gl/HdkNmJwTipJdiecs9" target="_blank" rel="noopener">開啟 Google Maps</a>
+    </section>
+
+    <h2 class="section-title">每日行程</h2>
+    <section class="days" aria-label="每日行程卡片">
+      <article class="day">
+        <header>
+          <h3 class="date">2026/07/24 <span class="weekday">抵達沖繩</span></h3>
+        </header>
+        <ol class="timeline">
+          <li class="free">
+            <span class="time">06:00</span>
+            <div>
+              <p class="event-title">白天空檔</p>
+              <p class="event-note">表格中以綠色標示。</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">19:00</span>
+            <div>
+              <p class="event-title">搭飛機到沖繩</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">20:00</span>
+            <div>
+              <p class="event-title">入住 Airbnb</p>
+              <p class="event-note">坐單軌到牧志車站，之後隨興。</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/HdkNmJwTipJdiecs9" target="_blank" rel="noopener">民宿地圖</a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <article class="day">
+        <header>
+          <h3 class="date">2026/07/25 <span class="weekday">那霸散步日</span></h3>
+        </header>
+        <ol class="timeline">
+          <li>
+            <span class="time">10:00</span>
+            <div>
+              <p class="event-title">買早餐</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">11:00</span>
+            <div>
+              <p class="event-title">延達摩寺</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/XK3HHX9w9rwEtdqu8" target="_blank" rel="noopener">西來院地圖</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="time">12:00</span>
+            <div>
+              <p class="event-title">吃飯（牧志市場）</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/31276MBs3GHSZRyUA" target="_blank" rel="noopener">牧志市場地圖</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="time">14:00</span>
+            <div>
+              <p class="event-title">逛百貨</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/f8GcYQNmuNnASoq36" target="_blank" rel="noopener">San-A 地圖</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="time">16:00</span>
+            <div>
+              <p class="event-title">波上宮</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/zpZC3Q3u6MKiDxuW7" target="_blank" rel="noopener">波上宮地圖</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="time">17:00</span>
+            <div>
+              <p class="event-title">去去吃炸豬排</p>
+            </div>
+          </li>
+          <li>
+            <span class="time">20:00</span>
+            <div>
+              <p class="event-title">逛國際通 & 買伴手禮之類的</p>
+            </div>
+          </li>
+        </ol>
+      </article>
+
+      <article class="day">
+        <header>
+          <h3 class="date">2026/07/26 <span class="weekday">回台灣</span></h3>
+        </header>
+        <ol class="timeline">
+          <li>
+            <span class="time">10:00</span>
+            <div>
+              <p class="event-title">退房、吃鬆餅、加勒比薯條</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/gBeVRYrGGXF8zn8x7" target="_blank" rel="noopener">鬆餅地圖</a>
+                <a class="small-map" href="https://maps.app.goo.gl/4SRbg1GV6qvdEW1r8" target="_blank" rel="noopener">薯條地圖</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="time">14:00</span>
+            <div>
+              <p class="event-title">搭飛機回台灣</p>
+            </div>
+          </li>
+          <li class="free">
+            <span class="time">15:00</span>
+            <div>
+              <p class="event-title">返程時間</p>
+              <p class="event-note">表格中以綠色標示。</p>
+            </div>
+          </li>
+        </ol>
+      </article>
+    </section>
+
+    <h2 class="section-title">地點快速開啟</h2>
+    <section class="maps" aria-label="Google Maps 快速連結">
+      <div class="place">
+        <div><b>民宿</b><span>3-10-3 (Second Floor), Maki-shi</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/HdkNmJwTipJdiecs9" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>波上宮</b><span>Naminoue Shrine</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/zpZC3Q3u6MKiDxuW7" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>西來院（達摩寺）</b><span>Daruma Temple</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/XK3HHX9w9rwEtdqu8" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>牧志市場</b><span>Makishi Public Market</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/31276MBs3GHSZRyUA" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>San-A Naha Main Place</b><span>サンエー那覇メインプレイス</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/f8GcYQNmuNnASoq36" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>加勒比薯條</b><span>Calbee Plus</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/4SRbg1GV6qvdEW1r8" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>福助玉子燒</b><span>市場小吃備案</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/h2MAm45awLfk4gi88" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>鬆餅</b><span>早餐／甜點</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/gBeVRYrGGXF8zn8x7" target="_blank" rel="noopener">導航</a>
+      </div>
+    </section>
+
+    <h2 class="section-title">時間表</h2>
+    <section class="sheet" aria-label="原表格版行程">
+      <table>
+        <thead>
+          <tr>
+            <th>時間</th>
+            <th>2026/07/24</th>
+            <th>2026/07/25</th>
+            <th>2026/07/26</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>06:00</td><td class="blocked"></td><td class="blocked"></td><td class="blocked"></td></tr>
+          <tr><td>07:00</td><td class="blocked"></td><td class="blocked"></td><td class="blocked"></td></tr>
+          <tr><td>08:00</td><td class="blocked"></td><td class="blocked"></td><td class="blocked"></td></tr>
+          <tr><td>09:00</td><td class="blocked"></td><td class="blocked"></td><td class="blocked"></td></tr>
+          <tr><td>10:00</td><td class="blocked"></td><td>買早餐</td><td>退房 & 吃鬆餅 & 加勒比薯條</td></tr>
+          <tr><td>11:00</td><td class="blocked"></td><td>延達摩寺</td><td></td></tr>
+          <tr><td>12:00</td><td class="blocked"></td><td>吃飯（牧志市場）</td><td></td></tr>
+          <tr><td>13:00</td><td class="blocked"></td><td></td><td></td></tr>
+          <tr><td>14:00</td><td class="blocked"></td><td>逛百貨</td><td>搭飛機回台灣</td></tr>
+          <tr><td>15:00</td><td class="blocked"></td><td></td><td class="blocked"></td></tr>
+          <tr><td>16:00</td><td class="blocked"></td><td>波上宮</td><td class="blocked"></td></tr>
+          <tr><td>17:00</td><td class="blocked"></td><td>去去吃炸豬排</td><td class="blocked"></td></tr>
+          <tr><td>18:00</td><td></td><td></td><td class="blocked"></td></tr>
+          <tr><td>19:00</td><td>搭飛機到沖繩</td><td></td><td class="blocked"></td></tr>
+          <tr><td>20:00</td><td>入住 Airbnb（坐單軌到牧志車站）</td><td>逛國際通 & 買伴手禮之類的</td><td class="blocked"></td></tr>
+          <tr><td>21:00</td><td>之後隨興</td><td></td><td class="blocked"></td></tr>
+          <tr><td>22:00</td><td></td><td></td><td class="blocked"></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Google Maps 按鈕在手機上會優先嘗試開啟 Google Maps App；若未安裝則會以瀏覽器開啟。
+  </footer>
+  <script>
+    document.querySelectorAll("[data-copy-target]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        const text = target ? target.textContent.trim() : "";
+        const originalText = button.textContent;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            textarea.remove();
+          }
+
+          button.textContent = "已複製";
+          window.setTimeout(() => {
+            button.textContent = originalText;
+          }, 1600);
+        } catch {
+          button.textContent = "複製失敗";
+          window.setTimeout(() => {
+            button.textContent = originalText;
+          }, 1600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
