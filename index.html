@@ -85,11 +85,10 @@
     }
 
     .notice {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
       align-items: center;
-      justify-content: space-between;
       padding: 16px 18px;
       border: 1px solid rgba(36, 127, 143, .2);
       border-radius: 8px;
@@ -103,6 +102,17 @@
 
     .notice span {
       color: var(--muted);
+    }
+
+    .notice-actions {
+      display: flex;
+      width: max-content;
+      max-width: 100%;
+      flex-wrap: nowrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+      justify-self: end;
     }
 
     .map-button,
@@ -126,6 +136,7 @@
 
     .map-button,
     .copy-button {
+      min-width: 128px;
       padding: 0 16px;
     }
 
@@ -348,6 +359,16 @@
         flex-direction: column;
       }
 
+      .notice {
+        display: flex;
+      }
+
+      .notice-actions {
+        width: 100%;
+        flex-direction: column;
+        justify-content: stretch;
+      }
+
       .map-button,
       .copy-button,
       .small-map {
@@ -376,8 +397,10 @@
         <strong>民宿地址</strong><br>
         <span id="stay-address">3-10-3 (Second Floor), Maki-shi, Naha-city, Okinawa 900-0013</span>
       </div>
-      <button class="copy-button" type="button" data-copy-target="stay-address">複製地址</button>
-      <a class="map-button" href="https://maps.app.goo.gl/HdkNmJwTipJdiecs9" target="_blank" rel="noopener">開啟 Google Maps</a>
+      <div class="notice-actions">
+        <button class="copy-button" type="button" data-copy-target="stay-address">複製地址</button>
+        <a class="map-button" href="https://maps.app.goo.gl/HdkNmJwTipJdiecs9" target="_blank" rel="noopener">開啟 Google Maps</a>
+      </div>
     </section>
 
     <h2 class="section-title">每日行程</h2>
@@ -470,6 +493,11 @@
             <span class="time">20:00</span>
             <div>
               <p class="event-title">逛國際通 & 買伴手禮之類的</p>
+              <p class="event-note">年輪蛋糕（福木屋）、Blue Seal。</p>
+              <div class="event-actions">
+                <a class="small-map" href="https://maps.app.goo.gl/Mea2wMPZ1pbUsetC6" target="_blank" rel="noopener">福木屋地圖</a>
+                <a class="small-map" href="https://maps.app.goo.gl/94tt51eMpbup1S37" target="_blank" rel="noopener">Blue Seal 地圖</a>
+              </div>
             </div>
           </li>
         </ol>
@@ -530,6 +558,14 @@
         <a class="small-map" href="https://maps.app.goo.gl/f8GcYQNmuNnASoq36" target="_blank" rel="noopener">導航</a>
       </div>
       <div class="place">
+        <div><b>福木屋（ふくぎや）</b><span>年輪蛋糕</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/Mea2wMPZ1pbUsetC6" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
+        <div><b>Blue Seal</b><span>沖繩冰淇淋</span></div>
+        <a class="small-map" href="https://maps.app.goo.gl/94tt51eMpbup1S37" target="_blank" rel="noopener">導航</a>
+      </div>
+      <div class="place">
         <div><b>加勒比薯條</b><span>Calbee Plus</span></div>
         <a class="small-map" href="https://maps.app.goo.gl/4SRbg1GV6qvdEW1r8" target="_blank" rel="noopener">導航</a>
       </div>
@@ -569,7 +605,7 @@
           <tr><td>17:00</td><td class="blocked"></td><td>去去吃炸豬排</td><td class="blocked"></td></tr>
           <tr><td>18:00</td><td></td><td></td><td class="blocked"></td></tr>
           <tr><td>19:00</td><td>搭飛機到沖繩</td><td></td><td class="blocked"></td></tr>
-          <tr><td>20:00</td><td>入住 Airbnb（坐單軌到牧志車站）</td><td>逛國際通 & 買伴手禮之類的</td><td class="blocked"></td></tr>
+          <tr><td>20:00</td><td>入住 Airbnb（坐單軌到牧志車站）</td><td>逛國際通 & 買伴手禮之類的<br>年輪蛋糕（福木屋）<br>Blue Seal</td><td class="blocked"></td></tr>
           <tr><td>21:00</td><td>之後隨興</td><td></td><td class="blocked"></td></tr>
           <tr><td>22:00</td><td></td><td></td><td class="blocked"></td></tr>
         </tbody>
